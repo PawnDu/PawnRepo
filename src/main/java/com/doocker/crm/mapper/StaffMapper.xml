@@ -329,5 +329,33 @@
       entry = #{entry,jdbcType=DATE},
       position_id = #{positionId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
-  </update>
+    </update>
+    <select id="selectByPage" resultType="java.util.HashMap">
+   SELECT
+	*
+FROM
+	(
+		SELECT
+			dept.dept_name deptName,
+			position.position_name positionName,
+			staff.position_id positionId,
+			staff.id id,
+			staff.name staffName,
+			staff.sex  sex,
+			staff.birthday birthday,
+			staff.entry  entry
+		FROM
+			dept,
+			position,
+			staff
+		WHERE
+			staff.position_id = position.id
+		AND position.dept_id = dept.id
+	)t
+	<if test ="staffName !=null and staffName != '' " >
+		WHERE
+	t.staffName LIKE  #{staffName}
+	</if>
+    </select>
+  
 </mapper>

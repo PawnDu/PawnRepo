@@ -35,9 +35,9 @@
 							"menus":[{"menuid":"51","menuname":"就业情况","icon":"icon-nav","url":"html/dept/listDept.html"}
 								]
 						},{"menuid":"6","icon":"icon-sys","menuname":"人力资源部门",
-							"menus":[{"menuid":"61","menuname":"部门管理","icon":"icon-nav","url":"html_dept_listdept.do"},
-									{"menuid":"62","menuname":"职务管理","icon":"icon-nav","url":"html/position/listPosition.html"},
-									{"menuid":"63","menuname":"员工管理","icon":"icon-nav","url":"html/staff/listStaff.html"}
+							"menus":[{"menuid":"61","menuname":"部门管理","icon":"icon-nav","url":"html_hr_listdept.do"},
+									{"menuid":"62","menuname":"职务管理","icon":"icon-nav","url":"html_hr_listposition.do"},
+									{"menuid":"63","menuname":"员工管理","icon":"icon-nav","url":"html_hr_liststaff.do"}
 								]
 						}
 				]};
@@ -156,11 +156,11 @@
                 <table cellpadding=3>
                     <tr>
                         <td>新密码：</td>
-                        <td><input id="txtNewPass" type="Password" class="txt01" /></td>
+                        <td><input id="txtNewPass" type="password" class="txt01" /></td>
                     </tr>
                     <tr>
                         <td>确认密码：</td>
-                        <td><input id="txtRePass" type="Password" class="txt01" /></td>
+                        <td><input id="txtRePass" type="password" class="txt01" /></td>
                     </tr>
                 </table>
             </div>
