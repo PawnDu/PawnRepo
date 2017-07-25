@@ -55,7 +55,7 @@ $(function(){
 			
 				$.ajax({
 					url:'position/getPositionByDept.do',
-					data:{deptId:data.rows[0].id},
+					data:{id:data.rows[0].id},
 					success:function(data){
 						$("#iposition").empty();
 						$(data.rows).each(function(){
@@ -73,7 +73,7 @@ $(function(){
 		var deptid = $("#idept").val();
 		$.ajax({
 			url:'position/getPositionByDept.do',
-			data:{deptId:deptid},
+			data:{id:deptid},
 			success:function(data){
 				$("#iposition").empty();
 				$(data.rows).each(function(){
