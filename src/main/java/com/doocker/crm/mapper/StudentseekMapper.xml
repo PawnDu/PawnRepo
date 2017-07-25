@@ -332,11 +332,12 @@
   </update>
   <select id = "seekSelect" resultType="java.util.HashMap">
   	SELECT
+  	seekid AS 'id',
 	stuname AS 'stuname',
 	stusex AS 'sex',
 	stuphone AS 'phone',
 	stuqq AS 'qq',
-	stuclass AS 'class',
+	stuclass AS 'stuclass',
 	stustatus AS 'status',
 	NAME AS 'staff'
 FROM

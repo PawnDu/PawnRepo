@@ -17,7 +17,7 @@
 									{"menuid":"14","menuname":"系统日志","icon":"icon-log","url":"demo1.html"}
 								]
 						},{"menuid":"2","icon":"icon-sys","menuname":"咨询部",
-							"menus":[{"menuid":"21","menuname":"咨询学生管理","icon":"icon-nav","url":"html/employee/listEmployee.html"},
+							"menus":[{"menuid":"21","menuname":"咨询学生管理","icon":"icon-nav","url":"html_seek_liststudentseek.do"},
 									{"menuid":"22","menuname":"咨询学生跟踪","icon":"icon-nav","url":"html/user/listUser.html"},
 									{"menuid":"23","menuname":"学生移交","icon":"icon-nav","url":"html/remove/listRemove.html"},
 									{"menuid":"24","menuname":"移交历史","icon":"icon-nav","url":"html/remove/historyRemove.html"},
