@@ -339,7 +339,8 @@
 	stuqq AS 'qq',
 	stuclass AS 'stuclass',
 	stustatus AS 'status',
-	NAME AS 'staff'
+	NAME AS 'staff',
+	id as 'staffid'
 FROM
 	(
 		SELECT

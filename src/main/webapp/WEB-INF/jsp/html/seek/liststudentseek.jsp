@@ -26,8 +26,8 @@
 				<input type="text" id="class"/><br>
 			<label>状态</label>
 				<input type="text" id="status"/><br>
-			<label>咨询人</label>
-				<input type="text" id="staff"/><br>
+			<label>咨询人工作号</label>
+				<input type="text" id="staffid"/><br>
 		<input type="button" id="insert" value="提交"/>
 	</form>
 </div>
@@ -63,6 +63,7 @@
 		        {field:'qq',title:'QQ',width:100},
 		        {field:'stuclass',title:'预报班级',width:100},
 		        {field:'status',title:'状态',width:100},
+		        {field:'staffid',title:'咨询人编号',width:100},
 		        {field:'staff',title:'咨询人',width:100}
 		    ]],
 		    fitColumns: true,
@@ -73,18 +74,32 @@
 		    	text:"修改",
 				iconCls: 'icon-edit',
 				handler: function(){					
-					$("#dialog").dialog("setTitle","修改部门");
+					$("#dialog").dialog("setTitle","修改学生信息");
 					$("#dialog").dialog("open");
 					$("#insert").unbind();
 					var row = $("#dg").datagrid("getSelected");
-					if(row){					
-						$("#istudentseekName").val(row.studentseekName);
+					var stuname = $("#istudentseekName").val(row.stuname);
+					var sex = $("#sex").val(row.sex);
+					var phone = $("#phone").val(row.phone);
+					var qq = $("#qq").val(row.qq);
+					var stuclass = $("#class").val(row.stuclass);
+					var status = $("#status").val(row.status);
+					var staff = $("#staff").val(row.staff);	
+					if(row){											
 						$("#insert").click(function(){
-							var studentseekName = $("#istudentseekName").val();
+							var istuname = $("#istudentseekName").val();
+							var isex = $("#sex").val();
+							var iphone = $("#phone").val();
+							var iqq = $("#qq").val();
+							var istuclass = $("#class").val();
+							var istatus = $("#status").val();
+							var istaffid = $("#staffid").val();	
 							if(studentseekName){
 								$.ajax({
 									url:'studentseek/update.do', 
-									data:{id:row.id,studentseekname: studentseekName},
+									data:{seekid:row.id,stuname:istuname,stusex:isex,stuphone:iphone,stuqq:iqq,stuclass:istuclass,
+										stustatus:istuclass,staffid	:istaffid	
+									},
 									success:function(data){
 										if(data.flag){
 											$("#dg").datagrid("reload");
@@ -110,11 +125,11 @@
 						var qq = $("#qq").val();
 						var stuclass = $("#class").val();
 						var status = $("#status").val();
-						var staff = $("#staff").val();				
+						var staffid = $("#staffid").val();				
 						if(istudentseekName){
 							$.ajax({
 								url:'studentseek/add.do', 
-								data:{stuname: stuname,sex:sex,phone:phone,qq:qq,stuclass:stuclass,status:status,staff:staff},
+								data:{stuname: stuname,stusex:sex,stuphone:phone,stuqq:qq,stuclass:stuclass,stustatus:status,staffid:staffid},
 								success:function(data){
 									if(data.flag){
 										$("#dg").datagrid("reload");
@@ -131,7 +146,6 @@
 				handler: function(){
 					//抓取到被选择的那行
 					var row = $("#dg").datagrid("getSelected");
-					alert(row.id);
 					//利用ajax处理请求
 					$.ajax({
 						url:'studentseek/del.do', 
