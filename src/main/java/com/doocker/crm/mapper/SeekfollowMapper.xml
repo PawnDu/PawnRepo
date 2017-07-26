@@ -300,4 +300,30 @@
       seekRus = #{seekrus,jdbcType=VARCHAR}
     where followid = #{followid,jdbcType=INTEGER}
   </update>
+  <select  id ="followSelect" resultType="java.util.HashMap">
+ SELECT
+	seekid,
+	seekDate,
+	stuname,
+	seekFun,
+	seekRus,
+	staffid,
+	NAME 
+FROM
+	(
+		SELECT
+			*
+		FROM
+			studentseek t,
+			seekfollow e,
+			staff f
+		WHERE
+			t.seekid = e.followid
+		AND t.staffid = f.id
+	) h
+	<if test ="stuname !=null and stuname != '' " >
+			WHERE
+		stuname LIKE  #{stuname}
+	</if>
+  </select>
 </mapper>

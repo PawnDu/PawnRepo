@@ -2,6 +2,8 @@ package com.doocker.crm.mapper;
 
 import com.doocker.crm.po.Seekfollow;
 import com.doocker.crm.po.SeekfollowExample;
+
+import java.util.HashMap;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -93,4 +95,6 @@ public interface SeekfollowMapper {
      * @mbggenerated Tue Jul 25 15:27:57 CST 2017
      */
     int updateByPrimaryKey(Seekfollow record);
+    
+    List<HashMap> followSelect (@Param("stuname") String stuname);
 }
